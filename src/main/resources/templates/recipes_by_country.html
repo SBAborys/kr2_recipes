@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Recipes by Country</title>
+    <link rel="stylesheet" type="text/css" href="../recipes_by_country_style.css">
+</head>
+<body>
+    <h1 th:text="${country.country_name}"></h1>
+    <table>
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr th:each="r : ${country.recipes}">
+                <td></td>
+                <td th:text="${r.recipe_name}"></td>
+                <td><a th:href="@{/recipe_detail/{id}(id=${r.id})}">Show Recipe</a></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,86 @@
+/*  Table style */
+table {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table, th, td {
+    border: 1px solid;
+}
+
+th {
+    background-color: black;
+    color: white;
+}
+
+td:nth-child(1) {
+    text-align: center;
+}
+
+td:nth-child(3) {
+    text-align: center;
+}
+
+td:nth-child(4) {
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: #d7fff1;
+}
+
+table {
+    counter-reset: rowNumber - 1;
+}
+
+table tr {
+    counter-increment: rowNumber;
+}
+
+table tr td:first-child::before {
+    content: counter(rowNumber);
+    min-width: 1em;
+    margin-right: 0.5em;
+}
+
+/*  Image style */
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 35%;
+    float: left;
+}
+
+/*  Text style */
+h1 {
+    color: darkblue;
+    font-size: 50px;
+    text-align: center;
+}
+
+div {
+    font-size: 20px;
+    border: 1px solid black;
+    padding: 10px;
+    width: auto;
+    height: auto;
+    text-align: center;
+}
+
+h3 {
+    color: darkslategrey;
+    font-size: 15px;
+    text-align: center;
+}
+
+form {
+    text-align: center;
+    font-size: 20px;
+}
+
+form input{
+    background-color: #ddfff8;
+    font-size: 15px;
+}

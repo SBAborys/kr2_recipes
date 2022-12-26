@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">>
+<head>
+    <meta charset="UTF-8">
+    <title>Recipe Ingredients</title>
+    <link rel="stylesheet" type="text/css" href="../recipes_ingredients_style.css">
+</head>
+<body>
+    <h1 th:text="${recipe.recipe_name}"></h1>
+    <img th:src="@{${recipe.recipe_image}}" class="center">
+    <div th:text="${recipe.cooking_info}"></div><br>
+    <h2></h2>
+
+    <form action="../calculate_quantity" method="get">
+        <label for="portions">Select number of portions:</label>
+        <select id="portions" name="portions">
+            <option value=1>select option</option>
+            <option value=2>2</option>
+            <option value=4>4</option>
+            <option value=6>6</option>
+            <option value=8>8</option>
+            <option value=10>10</option>
+        </select>
+        <input type="hidden" name="recipe_id" th:value="${recipe.id}">
+        <input type="submit" value="Calculate">
+    </form>
+
+    <h3 th:text="'For  < ' + ${portions} + ' > portions'"></h3>
+
+    <table>
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Ingredient</th>
+            <th>Measurement</th>
+            <th>Quantity</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="i : ${recipe.recipeInformation}">
+            <td></td>
+            <td th:text="${i.ingredient}"></td>
+            <td th:text="${i.measurement}"></td>
+            <td th:text="${i.quantity} * ${portions}"></td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>
